@@ -1,38 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class UIHandController : MonoBehaviour
+public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
 {
-    [SerializeField] private GameObject _cardHandPrefab;
+    [SerializeField] private UICardController _cardHandPrefab;
     [SerializeField] private GameObject _cardOnHandPrefab;
     [SerializeField] private GameObject _uiHandHolder;
+    [SerializeField] private Transform _handParent;
     private DeckController _deck;
-    private GameObject[] _currentHand= new GameObject[5];
+    private UICardController[] _currentHand = new UICardController[5];
     private GameObject _currentCardSelected;
+    bool _isCardSelected;
     private void Awake()
     {
         _deck = FindObjectOfType<DeckController>();
     }
     void Start()
     {
-
-    }
-    void Update()
-    {
-
+        DisplayCard();
     }
     public void OnPress()
     {
         _uiHandHolder.SetActive(false);
-        
+        Vector3 pos = Mouse.current.position.ReadValue();
+        pos.z = 0;
+        _currentCardSelected = Instantiate(_cardOnHandPrefab, pos, Quaternion.identity, transform);
+        _isCardSelected = true;
+    }
+
+    public void OnRelease()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (Physics.Raycast(ray, out RaycastHit hitInfo))
+        {
+            if (hitInfo.transform.CompareTag("Cell"))
+                Debug.Log($"I hit the cell {hitInfo.transform.name}");
+            else
+                Debug.Log($"I hit something of name {hitInfo.transform.name}");
+        }
+        else
+            Debug.Log("I hit nothing");
+        _uiHandHolder.SetActive(true);
+        _isCardSelected = false;
+        _currentCardSelected.gameObject.SetActive(false);
     }
     public void DisplayCard()
     {
-        for(int i=0; i<_currentHand.Length; i++)
+        for (int i = 0; i < _currentHand.Length; i++)
         {
-           // _cardHandPrefab.GetComponent<Button>().onClick.AddListener(_deck.HandOfCards[i].Do)
+            _currentHand[i] = Instantiate(_cardOnHandPrefab).GetComponent<UICardController>();
+            _currentHand[i].transform.SetParent(_handParent);
+            _currentHand[i].transform.localScale = Vector3.one;
+            _currentHand[i].onPressEvent += OnPress;
         }
+    }
+
+
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (_isCardSelected)
+            _currentCardSelected.GetComponent<RectTransform>().anchoredPosition += eventData.delta / transform.GetComponent<Canvas>().scaleFactor;
+
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+       OnRelease();
     }
 }

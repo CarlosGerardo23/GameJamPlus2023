@@ -13,6 +13,7 @@ public class DeckController : MonoBehaviour
 
     private void GetCards()
     {
+        HandOfCards= new CardSO[5];
         System.Random random= new System.Random();
         for(int i=0; i< HandOfCards.Length; i++)
         {
