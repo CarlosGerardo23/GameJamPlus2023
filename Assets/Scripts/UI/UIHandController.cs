@@ -16,6 +16,8 @@ public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
     private UICardController[] _currentHand = new UICardController[5];
     private GameObject _currentCardSelected;
     bool _isCardSelected;
+
+    private Vector3 _offset;
     private void Awake()
     {
         _deck = FindObjectOfType<DeckController>();
@@ -27,9 +29,8 @@ public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
     public void OnPress()
     {
         _uiHandHolder.SetActive(false);
-        Vector3 pos = Mouse.current.position.ReadValue();
-        pos.z = 0;
-        _currentCardSelected = Instantiate(_cardOnHandPrefab, pos, Quaternion.identity, transform);
+        Vector3 pos = Vector3.zero;
+        _currentCardSelected = Instantiate(_cardOnHandPrefab, pos, Quaternion.identity);
         _isCardSelected = true;
     }
 
@@ -53,7 +54,7 @@ public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
     {
         for (int i = 0; i < _currentHand.Length; i++)
         {
-            _currentHand[i] = Instantiate(_cardOnHandPrefab).GetComponent<UICardController>();
+            _currentHand[i] = Instantiate(_cardHandPrefab);
             _currentHand[i].transform.SetParent(_handParent);
             _currentHand[i].transform.localScale = Vector3.one;
             _currentHand[i].onPressEvent += OnPress;
@@ -61,16 +62,19 @@ public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
     }
 
 
-
     public void OnDrag(PointerEventData eventData)
     {
         if (_isCardSelected)
-            _currentCardSelected.GetComponent<RectTransform>().anchoredPosition += eventData.delta / transform.GetComponent<Canvas>().scaleFactor;
-
+        {
+            Vector3 newPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            newPosition.z = Camera.main.nearClipPlane;
+            _currentCardSelected.transform.position = Camera.main.ScreenToWorldPoint(newPosition);
+            Debug.Log($"Cyrrent position {_currentCardSelected.transform.position}, screen to pint {newPosition}, mouse position {Mouse.current.position.ReadValue()}");
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-       OnRelease();
+        OnRelease();
     }
 }
