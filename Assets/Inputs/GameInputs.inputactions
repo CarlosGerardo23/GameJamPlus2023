@@ -1,0 +1,54 @@
+{
+    "name": "GameInputs",
+    "maps": [
+        {
+            "name": "Board",
+            "id": "fde276f4-a751-430d-91f2-f7c1951d053f",
+            "actions": [
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "5c2c3354-0418-4d1d-b0ce-d0e7aa83550c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ViewCards",
+                    "type": "Button",
+                    "id": "0b1f5b05-331f-4155-8e50-290076fe0250",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "042831ae-c076-4dd8-b960-729f517542c5",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "707a228f-0784-49df-8ae7-90cbb1dfab3a",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ViewCards",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
