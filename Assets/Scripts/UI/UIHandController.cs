@@ -16,8 +16,6 @@ public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
     private UICardController[] _currentHand = new UICardController[5];
     private GameObject _currentCardSelected;
     bool _isCardSelected;
-
-    private Vector3 _offset;
     private void Awake()
     {
         _deck = FindObjectOfType<DeckController>();
@@ -60,7 +58,10 @@ public class UIHandController : MonoBehaviour, IDragHandler, IDropHandler
             _currentHand[i].onPressEvent += OnPress;
         }
     }
-
+    private void OnMouseUp()
+    {
+        Debug.Log($"Mouse ");
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
