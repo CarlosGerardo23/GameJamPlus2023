@@ -14416,6 +14416,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 784771564}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundLibraryScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768944446251818132, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: _onSelectForge.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.size
