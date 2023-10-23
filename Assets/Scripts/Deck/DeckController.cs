@@ -39,9 +39,10 @@ public class DeckController : MonoBehaviour
             if (HandOfCards[i] == null)
                 HandOfCards[i] = _currentDeck[random.Next(0, _currentDeck.Count)];
         }
-        for (int i = 0; i < HandOfCards.Length; i++)
-        {
-            _currentDeck.Remove(HandOfCards[i]);
-        }
+      
+    }
+    public void RemoveCard(GemCardSO card)
+    {
+        _currentDeck.Remove(card);
     }
 }
