@@ -2542,18 +2542,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1345962311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &146201031 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7774729334872653816, guid: b1cde8e222f12194d87b3e9efbd39113,
-    type: 3}
-  m_PrefabInstance: {fileID: 2354958425200385896}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 276df78d0e6387a48bb160c4b4c27455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &168163953
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,6 +4012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audios:
   - {fileID: 8300000, guid: 9c49ca53e192bc04b85d38418f02e40e, type: 3}
+  - {fileID: 8300000, guid: 6ac75443f66777c47b873770bf8c8ce4, type: 3}
 --- !u!4 &784771565
 Transform:
   m_ObjectHideFlags: 0
@@ -8213,7 +8202,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2adb625e1ecb6b241a57abc84f3ce5b5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14358,6 +14347,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1cde8e222f12194d87b3e9efbd39113, type: 3}
+--- !u!95 &2354958425200385897 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7643547253035833513, guid: b1cde8e222f12194d87b3e9efbd39113,
+    type: 3}
+  m_PrefabInstance: {fileID: 2354958425200385896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8306379897639143228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14429,7 +14424,7 @@ PrefabInstance:
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14440,7 +14435,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 146201031}
+      objectReference: {fileID: 2354958425200385897}
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -14459,7 +14454,7 @@ PrefabInstance:
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeSceneByIndex
+      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14469,7 +14464,7 @@ PrefabInstance:
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TransitionScript, Assembly-CSharp
+      value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14485,6 +14480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
+        type: 3}
+      propertyPath: onLoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Lose
       objectReference: {fileID: 0}
     - target: {fileID: 6211087996966723028, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14509,7 +14509,7 @@ PrefabInstance:
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: _onThirdChallengeCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14520,7 +14520,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _onThirdChallengeCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 146201031}
+      objectReference: {fileID: 2354958425200385897}
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: _onThirdChallengeCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -14534,7 +14534,7 @@ PrefabInstance:
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: _onThirdChallengeCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ChangeSceneByIndex
+      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14544,7 +14544,7 @@ PrefabInstance:
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: _onThirdChallengeCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: TransitionScript, Assembly-CSharp
+      value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
@@ -14554,7 +14554,7 @@ PrefabInstance:
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
       propertyPath: _onThirdChallengeCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Wining
+      value: Win
       objectReference: {fileID: 0}
     - target: {fileID: 6291685590061877010, guid: 036b91ac55e7e544ea5e981baadca049,
         type: 3}
