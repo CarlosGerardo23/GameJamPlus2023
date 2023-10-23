@@ -23,8 +23,9 @@ public class UIHandController : MonoBehaviour
         _deck = FindObjectOfType<DeckController>();
         _boardController = FindObjectOfType<BoardController>();
     }
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(2);
         DisplayCard();
     }
     public void OnPress(CardSO cardSO)
@@ -41,7 +42,7 @@ public class UIHandController : MonoBehaviour
         _currentCardSelected.SetCard(cardSO);
         _isCardSelected = true;
         _boardController.SetBoard((GemCardSO)_currentCardSelected.Card);
-
+_deck.RemoveCard((GemCardSO)cardSO);
         for (int i = 0; i < _deck.HandOfCards.Length; i++)
         {
             if (_deck.HandOfCards[i] == (GemCardSO)_currentCardSelected.Card)

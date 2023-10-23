@@ -335,13 +335,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9836ac7f7b53c74b8d6617fb3a29555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLoseGame:
+    m_PersistentCalls:
+      m_Calls: []
   _allDeck:
   - {fileID: 11400000, guid: 30ab7b31c9a8c204790680fd84604573, type: 2}
-  - {fileID: 11400000, guid: da32644cd6538954ab1aea7ec056948e, type: 2}
   - {fileID: 11400000, guid: dd66fa2f76e1d554f8f033359eb7b8c3, type: 2}
-  - {fileID: 11400000, guid: c8e686cf18ff294419ec8b751ad2dde2, type: 2}
+  - {fileID: 11400000, guid: da32644cd6538954ab1aea7ec056948e, type: 2}
   - {fileID: 11400000, guid: 7912facc1ed7cf24aa674042257e807f, type: 2}
   - {fileID: 11400000, guid: c8e686cf18ff294419ec8b751ad2dde2, type: 2}
+  - {fileID: 11400000, guid: c8e686cf18ff294419ec8b751ad2dde2, type: 2}
+  - {fileID: 11400000, guid: da32644cd6538954ab1aea7ec056948e, type: 2}
 --- !u!1 &1728889979324837831
 GameObject:
   m_ObjectHideFlags: 0
