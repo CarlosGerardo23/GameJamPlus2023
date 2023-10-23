@@ -23,8 +23,9 @@ public class UIHandController : MonoBehaviour
         _deck = FindObjectOfType<DeckController>();
         _boardController = FindObjectOfType<BoardController>();
     }
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(2);
         DisplayCard();
     }
     public void OnPress(CardSO cardSO)
