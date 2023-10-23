@@ -73,11 +73,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.058098957, g: 0.14342467, b: 0.3018868, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 25c02a76ec3cc034ba67f65aac6e0535, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 0.7190849, y: 1.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -157,11 +157,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.058098957, g: 0.14342467, b: 0.3018868, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1efb772daf5043747a322a67214fcea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 0.7190849, y: 1.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf,
     type: 3}
   m_Color: {r: 0.08373084, g: 0.19919115, b: 0.3962264, a: 1}
@@ -339,8 +339,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30ab7b31c9a8c204790680fd84604573, type: 2}
   - {fileID: 11400000, guid: da32644cd6538954ab1aea7ec056948e, type: 2}
   - {fileID: 11400000, guid: dd66fa2f76e1d554f8f033359eb7b8c3, type: 2}
-  - {fileID: 11400000, guid: e526e6df5755f7147846a1fc37658174, type: 2}
-  - {fileID: 11400000, guid: c9662fab68e6e4d498f91b282ea2c6f6, type: 2}
   - {fileID: 11400000, guid: c8e686cf18ff294419ec8b751ad2dde2, type: 2}
   - {fileID: 11400000, guid: 7912facc1ed7cf24aa674042257e807f, type: 2}
   - {fileID: 11400000, guid: c8e686cf18ff294419ec8b751ad2dde2, type: 2}
@@ -544,11 +542,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8610624030006693706}
   - component: {fileID: 604082046540879466}
-  - component: {fileID: 4041193423768005590}
-  - component: {fileID: 7288552965553786694}
   - component: {fileID: 6291685590061877010}
   m_Layer: 0
-  m_Name: Card
+  m_Name: Challenge
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,7 +559,7 @@ Transform:
   m_GameObject: {fileID: 4759203267543959844}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.9806795, y: 8.04, z: -0.2142638}
+  m_LocalPosition: {x: -0.22, y: 8.04, z: -2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -591,56 +587,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &4041193423768005590
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4759203267543959844}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 45a5702ba5c24394980d9deb6912e3f1, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &7288552965553786694
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4759203267543959844}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &6291685590061877010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +599,178 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258cba7d52297f14d92d4823266b02ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3298646919408967314}
+  _currentChallenges:
+  - challengeType: 0
+    tarotCard: {fileID: 11400000, guid: 43026764bddcfce468abbe4fcbc1405f, type: 2}
+  - challengeType: 1
+    tarotCard: {fileID: 11400000, guid: 2f88d367b8ed793418338c99d9003b02, type: 2}
+  - challengeType: 2
+    tarotCard: {fileID: 11400000, guid: a3ba7399585e4f54ba118bed4743950c, type: 2}
+  _onFirstChallengeCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6211087996966723028}
+        m_TargetAssemblyTypeName: DeckController, Assembly-CSharp
+        m_MethodName: AddToDeckAndReset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: e526e6df5755f7147846a1fc37658174,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: GemCardSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5768944446251818132}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: OnExtitBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFirstChallengeFailTry:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6291685590061877010}
+        m_TargetAssemblyTypeName: ChallengeSelectable, Assembly-CSharp
+        m_MethodName: DebugLogs
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fail try first
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5768944446251818132}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: OnExtitBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fail try first
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onSecondChallengeCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6211087996966723028}
+        m_TargetAssemblyTypeName: DeckController, Assembly-CSharp
+        m_MethodName: AddToDeckAndReset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: c9662fab68e6e4d498f91b282ea2c6f6,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: GemCardSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5768944446251818132}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: OnExtitBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onSecondChallengeFailTry:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6291685590061877010}
+        m_TargetAssemblyTypeName: ChallengeSelectable, Assembly-CSharp
+        m_MethodName: DebugLogs
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fail try second
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5768944446251818132}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: OnExtitBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fail try second
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onThirdChallengeCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6291685590061877010}
+        m_TargetAssemblyTypeName: ChallengeSelectable, Assembly-CSharp
+        m_MethodName: DebugLogs
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wining
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5768944446251818132}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: OnExtitBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wining
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onThirdChallengeFailTry:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6291685590061877010}
+        m_TargetAssemblyTypeName: ChallengeSelectable, Assembly-CSharp
+        m_MethodName: DebugLogs
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fail try third
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5768944446251818132}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: OnExtitBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fail try third
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5676017992810200299
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,11 +844,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 25c02a76ec3cc034ba67f65aac6e0535, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 0.6190849, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -766,7 +884,7 @@ Transform:
   m_GameObject: {fileID: 5685330211935174572}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.12, y: 8.04, z: -0.22}
+  m_LocalPosition: {x: -0.11, y: 8.04, z: 2.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -884,7 +1002,7 @@ Transform:
   m_GameObject: {fileID: 8090865135829583176}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.9978795, y: 8.002576, z: 2.0257363}
+  m_LocalPosition: {x: 2, y: 8.04, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -960,7 +1078,7 @@ Transform:
   m_GameObject: {fileID: 8738242924378777194}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.25, y: 8.002576, z: 2.0257363}
+  m_LocalPosition: {x: -2, y: 8.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

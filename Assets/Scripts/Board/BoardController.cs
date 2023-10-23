@@ -5,6 +5,7 @@ public class BoardController : MonoBehaviour
 {
     [SerializeField] private InputReaderSO _inputReader;
     [SerializeField] private CardController _tarotCard;
+    private ChallengeSelectable _challenge;
     private UIHandController _handController;
     private Animator _animator;
     private bool _isBoard;
@@ -13,9 +14,12 @@ public class BoardController : MonoBehaviour
     private GemCardSO _currentGemSelected;
     private GemCardSO _firstBoardSelection;
     private GemCardSO _secondBoardSelection;
+    private GameObject _forge1; 
+     private GameObject _forge2;
     private void Awake()
     {
         _handController = FindObjectOfType<UIHandController>();
+        _challenge = FindObjectOfType<ChallengeSelectable>();
         _animator = GetComponent<Animator>();
         _animator.SetBool("Card", true);
         _animator.SetBool("Board", false);
@@ -44,6 +48,14 @@ public class BoardController : MonoBehaviour
                     hitInfo.transform.GetComponent<Selectable>().DoAction();
                 else if (hitInfo.transform.CompareTag("Forge"))
                 {
+                    if(_forge1!=null)
+                    {
+                        if(hitInfo.transform.gameObject.name==_forge1.name)
+                        return;
+                    }
+                    else
+                    _forge1= hitInfo.transform.gameObject;
+
                     hitInfo.transform.GetComponent<Selectable>().DoActionWithCard(_currentGemSelected);
                     CheckCombination(_currentGemSelected);
                 }
@@ -53,7 +65,7 @@ public class BoardController : MonoBehaviour
             SetBoard(null);
 
     }
-    private void OnExtitBoard()
+    public void OnExtitBoard()
     {
         _animator.SetBool("Card", true);
         _animator.SetBool("Board", false);
@@ -80,9 +92,14 @@ public class BoardController : MonoBehaviour
         _secondBoardSelection = card;
         TarotCardsSO _tarotData = _cardCombination.GetTarotCard(_firstBoardSelection.GemType, _secondBoardSelection.GemType);
         if (_tarotData != null)
+        {
             _tarotCard.SetCard(_tarotData);
+            _challenge.CheckWinningCondition(_tarotData);
+        }
         else
             OnExtitBoard();
+            _forge1=null;
+            _forge2=null;
 
     }
 }

@@ -58,6 +58,7 @@ public class UIHandController : MonoBehaviour
             _currentCardSelected.gameObject.SetActive(false);
         _uiHandHolder.SetActive(true);
 
+        _deck.GetCards();
         for (int i = 0; i < _currentHand.Length; i++)
         {
             if (_currentHand[i] == null)
