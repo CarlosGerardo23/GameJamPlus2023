@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DeckController : MonoBehaviour
 {
+    [SerializeField] private UnityEvent onLoseGame;
     private List<GemCardSO> _currentDeck = new List<GemCardSO>();
     [SerializeField] private List<GemCardSO> _allDeck = new List<GemCardSO>();
     public GemCardSO[] HandOfCards { get; private set; }
@@ -29,7 +31,8 @@ public class DeckController : MonoBehaviour
     {
         if (HandOfCards == null)
             HandOfCards = new GemCardSO[3];
-
+        if(_currentDeck.Count==0)
+            onLoseGame.Invoke();
         System.Random random = new System.Random();
         for (int i = 0; i < HandOfCards.Length; i++)
         {
