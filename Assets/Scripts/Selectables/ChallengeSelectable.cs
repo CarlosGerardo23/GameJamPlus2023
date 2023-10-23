@@ -8,4 +8,9 @@ public class ChallengeSelectable : Selectable
     {
         Debug.Log($"This action is activated {transform.name}");
     }
+
+    public override void DoActionWithCard(CardSO card)
+    {
+        throw new System.NotImplementedException();
+    }
 }

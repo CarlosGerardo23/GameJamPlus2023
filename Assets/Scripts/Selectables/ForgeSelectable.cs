@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
-public class ForgeSelectable : MonoBehaviour
+public class ForgeSelectable : Selectable
 {
-    // Start is called before the first frame update
-    void Start()
+    private SpriteRenderer _spriteRenderer;
+    private void Awake()
     {
-        
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
+    public override void DoAction()
+    {
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void DoActionWithCard(CardSO card)
     {
-        
+        _spriteRenderer.sprite = card.icon;
     }
 }
