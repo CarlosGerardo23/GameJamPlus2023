@@ -5,7 +5,7 @@ using UnityEngine.Scripting;
 
 public class ForgeSelectable : Selectable
 {
-    [SerializeField] private Color _color;
+    [SerializeField] private Sprite _outline;
     private SpriteRenderer _spriteRenderer;
     private void Awake()
     {
@@ -23,6 +23,6 @@ public class ForgeSelectable : Selectable
 
     public void ResetCard()
     {
-
+        _spriteRenderer.sprite=_outline;
     }
 }

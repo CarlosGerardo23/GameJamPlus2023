@@ -98,6 +98,8 @@ public class BoardController : MonoBehaviour
         }
         else
             OnExtitBoard();
+            _forge1.GetComponent<ForgeSelectable>().ResetCard();
+            _forge2.GetComponent<ForgeSelectable>().ResetCard();
             _forge1=null;
             _forge2=null;
 
