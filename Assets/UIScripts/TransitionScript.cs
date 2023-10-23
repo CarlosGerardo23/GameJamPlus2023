@@ -14,4 +14,9 @@ public class TransitionScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ChangeSceneByIndex(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
 }
