@@ -14,8 +14,8 @@ public class BoardController : MonoBehaviour
     private GemCardSO _currentGemSelected;
     private GemCardSO _firstBoardSelection;
     private GemCardSO _secondBoardSelection;
-    private GameObject _forge1; 
-     private GameObject _forge2;
+    private GameObject _forge1;
+    private GameObject _forge2;
     private void Awake()
     {
         _handController = FindObjectOfType<UIHandController>();
@@ -48,13 +48,15 @@ public class BoardController : MonoBehaviour
                     hitInfo.transform.GetComponent<Selectable>().DoAction();
                 else if (hitInfo.transform.CompareTag("Forge"))
                 {
-                    if(_forge1!=null)
+                    if (_forge1 != null)
                     {
-                        if(hitInfo.transform.gameObject.name==_forge1.name)
-                        return;
+                        if (hitInfo.transform.gameObject.name == _forge1.name)
+                            return;
+                        else
+                            _forge2 = hitInfo.transform.gameObject;
                     }
                     else
-                    _forge1= hitInfo.transform.gameObject;
+                        _forge1 = hitInfo.transform.gameObject;
 
                     hitInfo.transform.GetComponent<Selectable>().DoActionWithCard(_currentGemSelected);
                     CheckCombination(_currentGemSelected);
@@ -98,10 +100,14 @@ public class BoardController : MonoBehaviour
         }
         else
             OnExtitBoard();
+        if (_forge1 != null)
             _forge1.GetComponent<ForgeSelectable>().ResetCard();
+        if (_forge2 != null)
             _forge2.GetComponent<ForgeSelectable>().ResetCard();
-            _forge1=null;
-            _forge2=null;
+        _forge1 = null;
+        _forge2 = null;
+        _firstBoardSelection=null;
+        _secondBoardSelection=null;
 
     }
 }
