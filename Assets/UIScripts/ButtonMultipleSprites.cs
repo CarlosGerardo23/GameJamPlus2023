@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -9,10 +10,18 @@ public class ButtonMultipleSprites : Button
 {
     [SerializeField] private List<Graphic> m_TargetGraphics = new List<Graphic>();
 
+    [SerializeField] private UnityEvent highlightEvents;
+
     protected override void Start()
     {
         base.Start();
         m_TargetGraphics = GetComponentsInChildren<Graphic>().ToList();
+        highlightEvents.AddListener(AddHighlightEvent);
+    }
+
+    void AddHighlightEvent()
+    {
+        FindAnyObjectByType<SoundLibraryScript>().PlaySound(0);
     }
 
     protected override void DoStateTransition(SelectionState state, bool instant)
@@ -28,6 +37,7 @@ public class ButtonMultipleSprites : Button
                 tintColor = colors.normalColor;
                 break;
             case SelectionState.Highlighted:
+                highlightEvents.Invoke();
                 tintColor = colors.highlightedColor;
                 break;
             case SelectionState.Pressed:
