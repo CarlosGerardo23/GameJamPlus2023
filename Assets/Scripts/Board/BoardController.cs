@@ -1,3 +1,4 @@
+using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,8 @@ public class BoardController : MonoBehaviour
 {
     [SerializeField] private InputReaderSO _inputReader;
     [SerializeField] private CardController _tarotCard;
+    
+    [SerializeField] private UnityEvent _onSelectForge;
     private ChallengeSelectable _challenge;
     private UIHandController _handController;
     private Animator _animator;
@@ -48,6 +51,7 @@ public class BoardController : MonoBehaviour
                     hitInfo.transform.GetComponent<Selectable>().DoAction();
                 else if (hitInfo.transform.CompareTag("Forge"))
                 {
+                    _onSelectForge.Invoke();
                     if (_forge1 != null)
                     {
                         if (hitInfo.transform.gameObject.name == _forge1.name)
