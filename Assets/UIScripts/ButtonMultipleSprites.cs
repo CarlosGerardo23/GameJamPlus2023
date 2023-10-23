@@ -21,7 +21,7 @@ public class ButtonMultipleSprites : Button
 
     void AddHighlightEvent()
     {
-        FindAnyObjectByType<SoundLibraryScript>().PlaySound(0);
+        FindAnyObjectByType<SoundLibraryScript>().PlaySound(1);
     }
 
     protected override void DoStateTransition(SelectionState state, bool instant)
