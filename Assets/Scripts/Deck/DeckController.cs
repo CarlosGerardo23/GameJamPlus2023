@@ -15,7 +15,16 @@ public class DeckController : MonoBehaviour
         }
         GetCards();
     }
-
+    public void AddToDeckAndReset(GemCardSO toAdd)
+    {
+        _allDeck.Add(toAdd);
+        _currentDeck= new List<GemCardSO>();
+         for (int i = 0; i < _allDeck.Count; i++)
+        {
+            _currentDeck.Add(_allDeck[i]);
+        }
+        GetCards();
+    }
     public void GetCards()
     {
         if (HandOfCards == null)

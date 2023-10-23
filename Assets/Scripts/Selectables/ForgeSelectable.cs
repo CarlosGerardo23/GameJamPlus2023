@@ -5,6 +5,7 @@ using UnityEngine.Scripting;
 
 public class ForgeSelectable : Selectable
 {
+    [SerializeField] private Color _color;
     private SpriteRenderer _spriteRenderer;
     private void Awake()
     {
@@ -18,5 +19,10 @@ public class ForgeSelectable : Selectable
     public override void DoActionWithCard(CardSO card)
     {
         _spriteRenderer.sprite = card.icon;
+    }
+
+    public void ResetCard()
+    {
+
     }
 }
