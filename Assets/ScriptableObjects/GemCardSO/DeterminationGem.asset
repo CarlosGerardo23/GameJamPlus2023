@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e23676afebae6a4ab01187ad5da8c5a, type: 3}
   m_Name: DeterminationGem
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 07340b33d42197242914cd4d6046285f, type: 3}
+  icon: {fileID: 21300000, guid: 2ded01f885d97494abd4f59b87e70023, type: 3}
   _gemType: 3

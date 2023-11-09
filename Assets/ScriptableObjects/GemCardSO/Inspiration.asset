@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e23676afebae6a4ab01187ad5da8c5a, type: 3}
   m_Name: Inspiration
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f53c1c3f9a64ce54680c95b54f1d7e27, type: 3}
+  icon: {fileID: 21300000, guid: 653ec2d0fe4d94c45a74601dbfbed571, type: 3}
   _gemType: 6

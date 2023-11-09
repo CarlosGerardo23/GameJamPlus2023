@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e23676afebae6a4ab01187ad5da8c5a, type: 3}
   m_Name: HopeGem
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d3a604b83a2d31d4a84ff3c2570ef609, type: 3}
+  icon: {fileID: 21300000, guid: 87a7d1ba0e6da7743987dd9d0bea6fe4, type: 3}
   _gemType: 5

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e23676afebae6a4ab01187ad5da8c5a, type: 3}
   m_Name: ChangeGem
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: a1f477884388ad54c888bb9ef3b87f8c, type: 3}
+  icon: {fileID: 21300000, guid: 6b2a19ce63578f140b4053d14ed42800, type: 3}
   _gemType: 4
