@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// The minor crads deck controller, handle the current cards on the deck and on the hand
+/// </summary>
 public class DeckController : MonoBehaviour
 {
     [SerializeField] private UnityEvent onLoseGame;
@@ -12,16 +15,16 @@ public class DeckController : MonoBehaviour
     private void Awake()
     {
         for (int i = 0; i < _allDeck.Count; i++)
-        {
             _currentDeck.Add(_allDeck[i]);
-        }
+
+        RandomizeListFisherYates();
         GetCards();
     }
     public void AddToDeckAndReset(GemCardSO toAdd)
     {
         _allDeck.Add(toAdd);
-        _currentDeck= new List<GemCardSO>();
-         for (int i = 0; i < _allDeck.Count; i++)
+        _currentDeck = new List<GemCardSO>();
+        for (int i = 0; i < _allDeck.Count; i++)
         {
             _currentDeck.Add(_allDeck[i]);
         }
@@ -31,18 +34,28 @@ public class DeckController : MonoBehaviour
     {
         if (HandOfCards == null)
             HandOfCards = new GemCardSO[3];
-        if(_currentDeck.Count==0)
+        if (_currentDeck.Count == 0)
             onLoseGame.Invoke();
-        System.Random random = new System.Random();
-        for (int i = 0; i < HandOfCards.Length; i++)
-        {
-            if (HandOfCards[i] == null)
-                HandOfCards[i] = _currentDeck[random.Next(0, _currentDeck.Count)];
-        }
-      
+
+        HandOfCards[0] = _currentDeck[0];
+        HandOfCards[1] = _currentDeck[1];
+        HandOfCards[2] = _currentDeck[2];
     }
     public void RemoveCard(GemCardSO card)
     {
         _currentDeck.Remove(card);
+    }
+    /// <summary>
+    /// Randomize the deck using the algorithm Fisher-Yates
+    /// </summary>
+    private void RandomizeListFisherYates()
+    {
+        for (int i = _currentDeck.Count - 1; i > 0; i--)
+        {
+            int indexSelected = Random.Range(0, i);
+            GemCardSO currentCard = _currentDeck[i];
+            _currentDeck[i] = _currentDeck[indexSelected];
+            _currentDeck[indexSelected] = currentCard;
+        }
     }
 }

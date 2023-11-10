@@ -43,7 +43,7 @@ public class UIHandController : MonoBehaviour
         _currentCardSelected.SetCard(cardSO);
         _isCardSelected = true;
         _boardController.SetBoard((GemCardSO)_currentCardSelected.Card);
-_deck.RemoveCard((GemCardSO)cardSO);
+        _deck.RemoveCard((GemCardSO)cardSO);
         for (int i = 0; i < _deck.HandOfCards.Length; i++)
         {
             if (_deck.HandOfCards[i] == (GemCardSO)_currentCardSelected.Card)
