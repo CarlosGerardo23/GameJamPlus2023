@@ -14,22 +14,21 @@ public class UIHandController : MonoBehaviour
     [SerializeField] private GameObject _uiHandHolder;
     [SerializeField] private Transform _handParent;
     [SerializeField] private Transform _cardSelctedParent;
-    private DeckController _deck;
-    private UICardController[] _currentHand = new UICardController[3];
+    [SerializeField] private PlayerDataSO _playerData;
+    private List<UICardController> _currentHand = new List<UICardController>();
     private UICardController _currentCardSelected;
     bool _isCardSelected;
-    private BoardController _boardController;
+    private BoardManager _boardManager;
     private void Awake()
     {
-        _deck = FindObjectOfType<DeckController>();
-        _boardController = FindObjectOfType<BoardController>();
+        _boardManager = FindObjectOfType<BoardManager>();
     }
     IEnumerator Start()
     {
         yield return new WaitForSeconds(2);
         DisplayCard();
     }
-    public void OnPress(CardSO cardSO)
+    public void OnPress(UICardController card)
     {
         _uiHandHolder.SetActive(false);
         Vector3 pos = Vector3.zero;
@@ -40,17 +39,10 @@ public class UIHandController : MonoBehaviour
             _currentCardSelected.transform.localPosition = Vector3.zero;
         }
         _currentCardSelected.gameObject.SetActive(true);
-        _currentCardSelected.SetCard(cardSO);
+        _currentCardSelected.SetCard(card.Card);
         _isCardSelected = true;
-        _boardController.SetBoard((GemCardSO)_currentCardSelected.Card);
-        _deck.RemoveCard((GemCardSO)cardSO);
-        for (int i = 0; i < _deck.HandOfCards.Length; i++)
-        {
-            if (_deck.HandOfCards[i] == (GemCardSO)_currentCardSelected.Card)
-            {
-                _deck.HandOfCards[i] = null;
-            }
-        }
+        _boardManager.SetGemCardOnBoard();
+        _playerData.cardSelected = card;
     }
 
 
@@ -59,18 +51,29 @@ public class UIHandController : MonoBehaviour
         if (_currentCardSelected != null)
             _currentCardSelected.gameObject.SetActive(false);
         _uiHandHolder.SetActive(true);
-
-        _deck.GetCards();
-        for (int i = 0; i < _currentHand.Length; i++)
+        for (int i = 0; i < _playerData.cardsInHand.Count; i++)
         {
-            if (_currentHand[i] == null)
+            if (_currentHand.Count < _playerData.cardsInHand.Count || _currentHand[i] == null)
             {
-                _currentHand[i] = Instantiate(_cardHandPrefab);
+                UICardController cardUI = Instantiate(_cardHandPrefab);
+                cardUI.transform.SetParent(_handParent);
+                _currentHand.Add(cardUI);
                 _currentHand[i].onPressEvent += OnPress;
+                _currentHand[i].onFinishBoard += RemoveFromHand;
             }
-            _currentHand[i].transform.SetParent(_handParent);
-            _currentHand[i].SetCard(_deck.HandOfCards[i]);
+            _currentHand[i].SetCard(_playerData.cardsInHand[i]);
             _currentHand[i].transform.localScale = Vector3.one;
         }
     }
+    public void SetCardsVisualsState(bool state)
+    {
+        _uiHandHolder.SetActive(state);
+        _currentCardSelected?.SetVisualsState(!state);
+    }
+    public void RemoveFromHand(UICardController cardToRemove)
+    {
+        _currentHand.Remove(cardToRemove);
+        Destroy(cardToRemove.gameObject);
+    }
+
 }

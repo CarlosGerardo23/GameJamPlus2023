@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 653ec2d0fe4d94c45a74601dbfbed571, type: 3}
   _gemType: 6
+  _affectPercentageValue: 10
+  addPercentage: 10

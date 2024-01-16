@@ -23,16 +23,29 @@ public class InputReaderSO : ScriptableObject, GameInputs.IBoardActions
     public void OnSelect(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
+        {
+//            Debug.Log("Press change card event");
             onSelectEvent();
+        }
     }
     public void OnViewCards(InputAction.CallbackContext context)
     {
-        onChangeToCardsEvent();
+        if (context.phase == InputActionPhase.Performed)
+        {
+       //     Debug.Log("Press change card event");
+            onChangeToCardsEvent();
+        }
     }
     public void EnableBoardInputs()
     {
         _gameInputs.Board.Enable();
     }
 
+    #region Mouse Variables
+    public Vector2 GetMousePosition()
+    {
+        return Mouse.current.position.ReadValue();
+    }
+    #endregion
 
 }

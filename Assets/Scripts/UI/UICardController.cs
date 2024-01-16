@@ -7,7 +7,8 @@ using UnityEngine.Events;
 public class UICardController : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private UnityEvent _onPress;
-    public Action<CardSO> onPressEvent;
+    public Action<UICardController> onPressEvent;
+    public Action<UICardController> onFinishBoard;
     private Image _image;
     private CardSO _cardSO;
 
@@ -22,7 +23,12 @@ public class UICardController : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         _onPress.Invoke();
-        Debug.Log($"press {transform.name}");
-        onPressEvent(_cardSO);
+//        Debug.Log($"press {transform.name}");
+        onPressEvent(this);
+    }
+
+    public void SetVisualsState(bool state)
+    {
+        _image.enabled=state;
     }
 }

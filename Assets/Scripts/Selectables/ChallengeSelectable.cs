@@ -1,77 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-
-public class ChallengeSelectable : MonoBehaviour
+public class ChallengeSelectable : Selectable
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private List<Challenge> _currentChallenges;
-    [SerializeField] private UnityEvent _onFirstChallengeCompleted;
-    [SerializeField] private UnityEvent _onFirstChallengeFailTry;
-    [SerializeField] private UnityEvent _onSecondChallengeCompleted;
-    [SerializeField] private UnityEvent _onSecondChallengeFailTry;
-    [SerializeField] private UnityEvent _onThirdChallengeCompleted;
-    [SerializeField] private UnityEvent _onThirdChallengeFailTry;
-    private Challenge _currentChallenge;
-    private int _currentIndex = 0;
-    private void Start()
+    [SerializeField] private ChallengeSO _challegeSO;
+    [SerializeField] private PlayerDataSO _playerData;
+    private DeckController _deckController;
+    public GemCardSO GemCard => (GemCardSO)_currentCard;
+    private void Awake()
     {
-        _currentChallenge = _currentChallenges[_currentIndex];
-        _spriteRenderer.sprite = _currentChallenge.tarotCard.icon;
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _deckController = FindObjectOfType<DeckController>();
     }
-
-    public void CheckWinningCondition(TarotCardsSO tarot)
+    private void OnEnable()
     {
-        if (_currentChallenge.tarotCard == tarot)
-        {
-            switch (_currentChallenge.challengeType)
-            {
-                case ChallengeType.FIRST:
-                    _onFirstChallengeCompleted.Invoke();
-                    _currentIndex++;
-                    _currentChallenge = _currentChallenges[_currentIndex];
-                    _spriteRenderer.sprite = _currentChallenge.tarotCard.icon;
-                    break;
-                case ChallengeType.SECOND:
-                    _onSecondChallengeCompleted.Invoke();
-                    _currentIndex++;
-                    _currentChallenge = _currentChallenges[_currentIndex];
-                    _spriteRenderer.sprite = _currentChallenge.tarotCard.icon;
-                    break;
-                case ChallengeType.THIRD:
-                    _onFirstChallengeCompleted.Invoke();
-                    break;
-            }
-
-        }
-        else
-        {
-            switch (_currentChallenge.challengeType)
-            {
-                case ChallengeType.FIRST:
-                    _onFirstChallengeFailTry.Invoke();
-                    break;
-                case ChallengeType.SECOND:
-                    _onSecondChallengeFailTry.Invoke();
-                    break;
-                case ChallengeType.THIRD:
-                    _onThirdChallengeFailTry.Invoke();
-                    break;
-            }
-        }
+        _challegeSO.OnChallengeSucces += _deckController.AddToDeckAndReset;
+        _challegeSO.OnChallengeFailed += _playerData.RestFailedCard;
     }
-
-    public void DebugLogs(string logs)
+    private void OnDisable()
     {
-        Debug.Log($"Logs: {logs}");
+        _challegeSO.OnChallengeSucces -= _deckController.AddToDeckAndReset;
+        _challegeSO.OnChallengeFailed -= _playerData.RestFailedCard;
+    }
+    public override void DoAction()
+    {
+        int addPercentage = _currentCard != null ? ((GemCardSO)_currentCard).GetAffectPercentageValue() : 0;
+        _challegeSO.GetChallengeResult(addPercentage);
+        GemCard?.ResetOffsetValue();
     }
 }
-[System.Serializable]
-class Challenge
-{
-    public ChallengeType challengeType;
-    public TarotCardsSO tarotCard;
-}
-public enum ChallengeType { FIRST, SECOND, THIRD };

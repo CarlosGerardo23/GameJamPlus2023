@@ -62,7 +62,7 @@ public class BoardController : MonoBehaviour
                     else
                         _forge1 = hitInfo.transform.gameObject;
 
-                    hitInfo.transform.GetComponent<Selectable>().DoActionWithCard(_currentGemSelected);
+                    hitInfo.transform.GetComponent<Selectable>().SetCardOnSelectable(_currentGemSelected);
                     CheckCombination(_currentGemSelected);
                 }
             }
@@ -100,14 +100,14 @@ public class BoardController : MonoBehaviour
         if (_tarotData != null)
         {
             _tarotCard.SetCard(_tarotData);
-            _challenge.CheckWinningCondition(_tarotData);
+            //_challenge.CheckWinningCondition(_tarotData);
         }
         else
             OnExtitBoard();
         if (_forge1 != null)
-            _forge1.GetComponent<ForgeSelectable>().ResetCard();
+            _forge1.GetComponent<GemSelectable>().ResetCard();
         if (_forge2 != null)
-            _forge2.GetComponent<ForgeSelectable>().ResetCard();
+            _forge2.GetComponent<GemSelectable>().ResetCard();
         _forge1 = null;
         _forge2 = null;
         _firstBoardSelection=null;
